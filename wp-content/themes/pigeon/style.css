@@ -1,0 +1,109 @@
+/**
+Theme Name: PigeonTech
+Author: Sunil
+Author URI: https://srisys.com
+Description: custom child theme for Astra
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: pigeontech
+Template: astra
+*/
+.n2-ss-slider .n2-ss-item-image-content img {
+	border-radius:5px;
+}
+.bdrl-5, .bdrl-5 .elementor-widget-wrap{
+	    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+/* 1) Make the slider wrapper positionable */
+.sliderwithshade .wp-block-getwid-images-slider__wrapper {
+  position: relative; /* establish a containing block */
+}
+/* 2) Add the gradient overlays */
+.sliderwithshade .wp-block-getwid-images-slider__wrapper::before,
+.sliderwithshade .wp-block-getwid-images-slider__wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 200px;            /* adjust fade width */
+  pointer-events: none;
+  z-index: 2;              /* sit above slides, below arrows */
+}
+
+.sliderwithshade .wp-block-getwid-images-slider__wrapper::before {
+  left: -10px;             /* corrected to -10px */
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,1),
+    rgba(255,255,255,0)
+  );
+}
+
+.sliderwithshade .wp-block-getwid-images-slider__wrapper::after {
+  right: -10px;            /* corrected to -10px */
+  background: linear-gradient(
+    to left,
+    rgba(255,255,255,1),
+    rgba(255,255,255,0)
+  );
+}
+
+/* 3) Absolutely position the prev/next buttons */
+.sliderwithshade .wp-block-getwid-images-slider__wrapper .slick-prev,
+.sliderwithshade .wp-block-getwid-images-slider__wrapper .slick-next {
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  z-index: 3;              /* above the gradient fades */
+  background: transparent;  /* remove any default bg */
+}
+
+/* 4) Tweak the exact inset of each arrow */
+.sliderwithshade .wp-block-getwid-images-slider__wrapper .slick-prev {
+  left: 15px !important;    /* move in from the left edge */
+}
+
+.sliderwithshade .wp-block-getwid-images-slider__wrapper .slick-next {
+  right: 15px !important;   /* move in from the right edge */
+}
+/* latest Features */
+/* Card container styling */
+.latest-features-card {
+  background: #fff;
+  border-radius: 12px;
+  /* box-shadow: 0 4px 16px rgba(0,0,0,0.1); */
+  padding: 40px;
+	border:1px solid rgba(61, 13, 138, 0.2);
+}
+.latest-features-card .features-cta {
+	margin-top:25px
+}
+/* Remove the flex gap on both the 2-col & 3-col rows */
+.latest-features-card .features-grid.is-layout-flex {
+  gap: 0 !important;
+}
+
+/* Nuke any built-in padding/margins inside each column */
+.latest-features-card .features-grid .wp-block-column {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+/* Make both rows a true flex container and center everything */
+.latest-features-card .features-grid.is-layout-flex {
+  display: flex !important;
+  justify-content: left !important;
+  gap: 20px !important;                /* no built-in gutter */
+}
+
+/* Let each column shrink-to-fit its content */
+.latest-features-card .features-grid.is-layout-flex .wp-block-column {
+  flex: 0 0 auto !important;       /* no grow, no shrink, auto width */
+  width: auto !important;
+}
+
+/* (Optional) add a little space between items */
+.latest-features-card .features-grid.is-layout-flex .wp-block-column + .wp-block-column {
+  margin-left: 1.5em;
+}
